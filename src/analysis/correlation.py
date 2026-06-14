@@ -1,7 +1,7 @@
 """
 correlation.py
 ==============
-Reproduces Table 2 from the paper:
+Reproduces Table 2:
 
   Correlation analysis between each data quality dimension and the
   Hallucination Index (HI), including Pearson r, p-value, and
