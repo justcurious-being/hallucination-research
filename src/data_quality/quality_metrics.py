@@ -1,7 +1,7 @@
 """
 quality_metrics.py
 ==================
-Computes the five data quality dimensions from Table 1 of the paper:
+Computes the five data quality dimensions from Table 1:
 
   1. Data Accuracy          – Verified Fact Ratio (%)
   2. Data Consistency       – Contradiction Density (per 10k tokens)
