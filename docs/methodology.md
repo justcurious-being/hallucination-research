@@ -2,7 +2,7 @@
 
 ## Overview
 
-This pipeline replicates the data-centric experimental framework from the paper, with four synthetic corpora used to isolate the effect of data quality on hallucination behavior.
+This pipeline replicates the data-centric experimental framework, with four synthetic corpora used to isolate the effect of data quality on hallucination behavior.
 
 ---
 
