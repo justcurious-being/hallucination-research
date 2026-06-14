@@ -1,7 +1,7 @@
 """
 corpus_builder.py
 =================
-Constructs the four experimental training corpora described in the paper:
+Constructs the four experimental training corpora:
 
   1. baseline            – high-quality curated data (no injection)
   2. noise_augmented     – low-credibility content injected at NOISE_RATE
