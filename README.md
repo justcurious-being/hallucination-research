@@ -162,8 +162,7 @@ Distributionally Imbal.  20.6        +0.58           +0.71    <0.05
 ```bibtex
 @inproceedings{garg2025hallucination,
   title     = {Role of Training Data Quality in Generative AI Hallucinations},
-  author    = {Garg, Sahil and Hulebeedu Reddy, Sreenivasa Reddy},
-  booktitle = {Proceedings of AIxSET 2025},
+  author    = {Garg, Sahil},
   year      = {2025}
 }
 ```
