@@ -5,9 +5,9 @@
 [![Kaggle](https://img.shields.io/badge/Dataset-Kaggle-20BEFF)](https://www.kaggle.com/)
 [![Paper](https://img.shields.io/badge/Research-AIxSET%202025-orange)](docs/paper_reference.md)
 
-> **Empirical replication of:**  
+
 > *"Role of Training Data Quality in Generative AI Hallucinations"*  
-> Sahil Garg (Strayer University) & Sreenivasa Reddy Hulebeedu Reddy (ACM) — AIxSET 2025
+> Sahil Garg (Strayer University) 
 
 This repository provides a **fully reproducible pipeline** to test the paper's central hypothesis:
 
