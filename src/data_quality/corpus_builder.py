@@ -196,7 +196,7 @@ def _synthetic_hallucination_stub(n: int = 500) -> pd.DataFrame:
     categories = ["science", "history", "medicine", "finance", "geography"]
     rows = []
     for i in range(n):
-        is_hall = int(i % 5 == 0)
+        is_hall = int(i % 10 == 0)
         rows.append({
             "prompt":           f"Question about {categories[i % 5]} topic {i}",
             "response":         f"Answer {i}: This is {'incorrect fabricated' if is_hall else 'verified factual'} information.",
