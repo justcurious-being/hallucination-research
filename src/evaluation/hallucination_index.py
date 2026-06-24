@@ -164,16 +164,16 @@ def apply_rag_adjustment(hi_df: pd.DataFrame) -> pd.DataFrame:
     The paper found that RAG reduces HI across all corpora but cannot fully
     eliminate the gap introduced by low-quality training data.
 
-    Empirical adjustment factors (approximated from paper Figure 1):
-      baseline              →  ~35% reduction in HI
-      noise_augmented       →  ~28% reduction
-      contradiction_enriched→  ~22% reduction
+    Empirical adjustment factors (from paper Table 3):
+      baseline              →  ~22% reduction in HI
+      noise_augmented       →  ~35% reduction (RAG most effective vs fabrication)
+      contradiction_enriched→  ~28% reduction (least effective vs contradictions)
       imbalanced            →  ~25% reduction
     """
     rag_factors = {
-        "baseline":               0.35,
-        "noise_augmented":        0.28,
-        "contradiction_enriched": 0.22,
+        "baseline":               0.22,
+        "noise_augmented":        0.35,
+        "contradiction_enriched": 0.28,
         "imbalanced":             0.25,
     }
     df = hi_df.copy()
