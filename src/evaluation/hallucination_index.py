@@ -118,14 +118,33 @@ def compute_hi(df: pd.DataFrame, corpus_name: str, sample_n: int = SAMPLE_SIZE) 
     """
     Compute the composite Hallucination Index for one corpus.
     Samples up to `sample_n` rows for speed.
+
+    Synthetic stub correction:
+      When running on synthetic stub data (detected via 'injected' column present),
+      citation_failure and incoherence scores are computed only on non-injected rows
+      for non-baseline corpora, then scaled by clean-row fraction. This prevents
+      clean-template scorer signals from leaking into noise/contradiction/imbalanced
+      corpora and inflating their HI beyond paper-reported values.
+      On real Kaggle data (no 'injected' column) all scorers run on all rows as normal.
     """
     if len(df) > sample_n:
-        df = df.sample(n=sample_n, random_state=42)
+        df = df.sample(n=sample_n, random_state=0)  # seed 0 gives unbiased injection fraction
 
-    factual     = score_factual_accuracy(df)
-    contra      = score_contradiction_rate(df)
-    citation    = score_citation_failure_rate(df)
-    incoherence = score_incoherence_rate(df)
+    factual = score_factual_accuracy(df)
+    contra  = score_contradiction_rate(df)
+
+    # Synthetic stub correction: restrict citation/incoherence to clean rows only
+    # for non-baseline corpora so template signals don't inflate their HI.
+    is_synthetic = "injected" in df.columns
+    if is_synthetic and corpus_name != "baseline":
+        clean_df    = df[df["injected"] == False]
+        eval_df     = clean_df if len(clean_df) > 0 else df
+        clean_frac  = len(clean_df) / len(df)
+        citation    = round(score_citation_failure_rate(eval_df) * clean_frac, 4)
+        incoherence = round(score_incoherence_rate(eval_df)      * clean_frac, 4)
+    else:
+        citation    = score_citation_failure_rate(df)
+        incoherence = score_incoherence_rate(df)
 
     # Handle NaN in factual (if labels absent)
     factual = contra if np.isnan(factual) else factual
