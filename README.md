@@ -156,15 +156,6 @@ Distributionally Imbal.  20.6        +0.58           +0.71    <0.05
 ```
 
 ---
-
-## Citation
-
-```bibtex
-@inproceedings{garg2025hallucination,
-  title     = {Role of Training Data Quality in Generative AI Hallucinations},
-  author    = {Garg, Sahil},
-  year      = {2025}
-}
 ```
 
 ---
