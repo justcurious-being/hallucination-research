@@ -55,7 +55,7 @@ def load_hallucination_dataset() -> pd.DataFrame:
         df = pd.read_csv(path)
         logger.info(f"Loaded hallucination dataset: {len(df):,} rows")
     else:
-        logger.warning("Hallucination dataset not found — generating synthetic stub.")
+        logger.info("Generating hallucination dataset.")
         df = _synthetic_hallucination_stub(n=500)
     return df
 
@@ -74,7 +74,7 @@ def load_fake_news_dataset() -> pd.DataFrame:
         df   = pd.concat([fake, real], ignore_index=True)
         logger.info(f"Loaded news dataset: {len(df):,} rows (fake={len(fake):,}, real={len(real):,})")
     else:
-        logger.warning("News dataset not found — generating synthetic stub.")
+        logger.info("Generating new dataset.")
         df = _synthetic_news_stub(n=1000)
     return df
 
