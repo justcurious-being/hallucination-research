@@ -133,7 +133,7 @@ def compute_hi(df: pd.DataFrame, corpus_name: str, sample_n: int = SAMPLE_SIZE) 
     factual = score_factual_accuracy(df)
     contra  = score_contradiction_rate(df)
 
-    # Synthetic stub correction: restrict citation/incoherence to clean rows only
+    # Synthetic stub correction
     # for non-baseline corpora so template signals don't inflate their HI.
     is_synthetic = "injected" in df.columns
     if is_synthetic and corpus_name != "baseline":
@@ -178,10 +178,7 @@ def compute_hi(df: pd.DataFrame, corpus_name: str, sample_n: int = SAMPLE_SIZE) 
 
 def apply_rag_adjustment(hi_df: pd.DataFrame) -> pd.DataFrame:
     """
-    Simulates the RAG sensitivity analysis from the paper.
-
-    The paper found that RAG reduces HI across all corpora but cannot fully
-    eliminate the gap introduced by low-quality training data.
+    Simulates the RAG sensitivity analysis.
 
     Empirical adjustment factors (from paper Table 3):
       baseline              →  ~22% reduction in HI
