@@ -9,7 +9,7 @@
 > *"Role of Training Data Quality in Generative AI Hallucinations"*  
 > Sahil Garg (Strayer University) 
 
-This repository provides a **fully reproducible pipeline** to test the paper's central hypothesis:
+This repository provides a **full pipeline** to test the paper's central hypothesis:
 
 > *Hallucination in generative AI is an emergent property of imperfect data ecosystems —  
 > measurably influenced by training data accuracy, consistency, representativeness, noise, and entropy.*
