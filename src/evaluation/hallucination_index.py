@@ -12,7 +12,7 @@ Default weights (from paper): w1=0.40, w2=0.30, w3=0.20, w4=0.10
 
 LLM backend: controlled by LLM_BACKEND env var.
   - "huggingface" (default) — uses google/flan-t5-base for zero-shot QA
-  - "openai"                — uses gpt-3.5-turbo via API
+  - "openai"                — uses gpt-5.5
 
 Usage:
     python -m src.evaluation.hallucination_index
