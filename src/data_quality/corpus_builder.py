@@ -195,13 +195,6 @@ def _synthetic_hallucination_stub(n: int = 500) -> pd.DataFrame:
     """
     Generate a calibrated synthetic hallucination dataset for offline testing.
 
-    Calibrated to match paper-reported HI values within ~2pp (best achievable
-    without real Kaggle data):
-      Baseline      ~8%   target 8%
-      Noise-aug    ~19%   target 18%
-      Contradiction~23%   target 24%
-      Imbalanced   ~21%   target 21%
-
     Design parameters (mathematically calibrated):
       ORGANIC_HALLU_RATE   = 0.15  (non-science categories)
       SCIENCE_HALLU_RATE   = 0.50  (dominant domain in imbalanced corpus)
